@@ -1,0 +1,25 @@
+{
+  "name": "present",
+  "version": "0.0.1",
+  "description": "HTML5 presentation toolkit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zharley/present.git"
+  },
+  "author": "Zenon Harley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zharley/present/issues"
+  },
+  "homepage": "https://github.com/zharley/present#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "reveal.js": "^3.1.0"
+  },
+  "dependencies": {
+  }
+}
