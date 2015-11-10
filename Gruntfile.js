@@ -40,7 +40,7 @@ module.exports = function(grunt) {
     },
 
     template: {
-      html: {
+      index: {
         options: {
           data: {
             title: config.title,
@@ -173,13 +173,9 @@ module.exports = function(grunt) {
         tasks: 'css-core'
       },
       html: {
-        files: [ 'src/*.tpl' ],
+        files: [ 'src/*.tpl', config.slides ],
         tasks: 'template'
       },
-      slides: {
-        files: [ config.slides ],
-        tasks: 'template'
-      }
     }
   });
 
