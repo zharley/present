@@ -175,6 +175,10 @@ module.exports = function(grunt) {
       html: {
         files: [ 'src/*.tpl' ],
         tasks: 'template'
+      },
+      slides: {
+        files: [ config.slides ],
+        tasks: 'template'
       }
     }
   });
