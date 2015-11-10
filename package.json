@@ -17,9 +17,19 @@
   },
   "homepage": "https://github.com/zharley/present#readme",
   "devDependencies": {
-    "gulp": "^3.9.0",
+    "ecstatic": "^1.2.0",
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^3.0.3",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sass": "^1.1.0",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "process": "^0.11.2",
     "reveal.js": "^3.1.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
