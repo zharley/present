@@ -177,16 +177,12 @@ module.exports = function(grunt) {
         livereload: true
       },
       js: {
-        files: [ 'Gruntfile.js', 'js/reveal.js' ],
+        files: [ 'Gruntfile.js' ],
         tasks: 'js'
       },
       theme: {
-        files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
-        tasks: 'css-themes'
-      },
-      css: {
-        files: [ 'css/reveal.scss' ],
-        tasks: 'css-core'
+        files: [ 'src/css/theme/*.scss' ],
+        tasks: 'sass'
       },
       html: {
         files: [ 'src/*.tpl', config.slides ],
@@ -210,12 +206,6 @@ module.exports = function(grunt) {
 
   // JS task
   grunt.registerTask('js', [ 'jshint', 'uglify' ]);
-
-  // Theme CSS
-  grunt.registerTask('css-themes', [ 'sass:themes' ] );
-
-  // Core framework CSS
-  grunt.registerTask('css-core', [ 'sass:core', 'autoprefixer', 'cssmin' ] );
 
   // All CSS
   grunt.registerTask('css', [ 'sass', 'autoprefixer', 'cssmin' ] );

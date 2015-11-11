@@ -7,17 +7,45 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
 
-// Override theme settings (see ../template/settings.scss)
-$mainFont: 'Open Sans', sans-serif;
-$mainColor: #000;
-$headingFont: 'Open Sans', Impact, sans-serif;
-$headingColor: #000;
-$headingTextShadow: none;
-$headingTextTransform: none;
+// Background of the presentation
 $backgroundColor: #fff;
+
+// Primary/body text
+$mainFont: 'Open Sans', sans-serif;
+$mainFontSize: 28px;
+$mainColor: #353839;
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+$headingFont: 'Open Sans', Impact, sans-serif;
+$headingColor: #353839;
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingTextShadow: none;
+$headingFontWeight: normal;
+$heading1TextShadow: $headingTextShadow;
+$heading1Size: 3.77em;
+$heading2Size: 2.11em;
+$heading3Size: 1.55em;
+$heading4Size: 1.00em;
+
+// Links and actions
 $linkColor: #00008B;
 $linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
 $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+$selectionColor: #fff;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
+}
 
 // Theme template ------------------------------
 @import "theme";
