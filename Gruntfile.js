@@ -15,6 +15,7 @@ module.exports = function(grunt) {
   config.description = grunt.option('description') || '';
   config.slides = grunt.option('slides') || 'src/slides.md';
   config.separator = grunt.option('separator') || "^\n\n";
+  config.theme = grunt.option('theme') || 'open';
 
   // Slide preprocessing
   var markdown = fs.readFileSync(config.slides).toString();
@@ -46,7 +47,8 @@ module.exports = function(grunt) {
             title: config.title,
             author: config.author,
             description: config.description,
-            slides: html
+            slides: html,
+            theme: config.theme
           }
         },
         files: {
@@ -100,6 +102,20 @@ module.exports = function(grunt) {
             cwd: path.resolve(config.revealPath, 'css'),
             src: ['*.scss'],
             dest: 'dist/css',
+            ext: '.css'
+          }
+        ]
+      },
+      custom_themes: {
+        options: {
+          includePaths: [ path.join(config.revealPath, 'css', 'theme', 'template') ]
+        },
+        files: [
+          {
+            expand: true,
+            cwd: path.join('src', 'css', 'theme'),
+            src: ['*.scss'],
+            dest: 'dist/css/theme',
             ext: '.css'
           }
         ]

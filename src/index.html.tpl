@@ -2,19 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-
     <title><%- title %></title>
-
     <meta name="description" content="<%- description %>">
     <meta name="author" content="<%- author %>">
-
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/theme/<%- theme %>.css" id="theme">
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -37,7 +32,7 @@
     <div class="reveal">
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-		<%= slides %>
+        <%= slides %>
       </div>
     </div>
 
