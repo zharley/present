@@ -14,7 +14,7 @@ module.exports = function(grunt) {
   config.author = grunt.option('author') || '';
   config.description = grunt.option('description') || '';
   config.slides = grunt.option('slides') || 'src/slides.md';
-  config.separator = grunt.option('separator') || "^\n\n";
+  config.separator = grunt.option('separator') || "^---";
   config.theme = grunt.option('theme') || 'open';
   config.assets = grunt.option('assets') || 'assets';
 
