@@ -16,6 +16,7 @@ module.exports = function(grunt) {
   config.slides = grunt.option('slides') || 'src/slides.md';
   config.separator = grunt.option('separator') || "^\n\n";
   config.theme = grunt.option('theme') || 'open';
+  config.assets = grunt.option('assets') || 'assets';
 
   // Slide preprocessing
   var markdown = fs.readFileSync(config.slides).toString();
@@ -55,6 +56,18 @@ module.exports = function(grunt) {
           'dist/index.html': ['src/index.html.tpl']
         }
       }
+    },
+
+    copy: {
+      main: {
+        files: [{ 
+          expand: true, 
+          cwd: config.assets,
+          src: [ '*' ], 
+          dest: 'dist/assets', 
+          filter: 'isFile' 
+        }],
+      },
     },
 
     uglify: {
@@ -200,9 +213,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-template');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task
-  grunt.registerTask('default', [ 'css', 'js', 'template' ]);
+  grunt.registerTask('default', [ 'css', 'js', 'template', 'copy' ]);
 
   // JS task
   grunt.registerTask('js', [ 'jshint', 'uglify' ]);
