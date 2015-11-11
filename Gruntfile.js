@@ -62,13 +62,13 @@ module.exports = function(grunt) {
         banner: '<%= meta.banner %>\n'
       },
       reveal: {
-        src: path.resolve(config.revealPath, 'js', 'reveal.js'),
+        src: path.join(config.revealPath, 'js', 'reveal.js'),
         dest: 'dist/js/reveal.min.js'
       },
       reveal_lib: {
         files: [{
           expand: true,
-          cwd: path.resolve(config.revealPath, 'lib'),
+          cwd: path.join(config.revealPath, 'lib'),
           src: '**/*.js',
           dest: 'dist/lib'
         }]
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
       reveal_plugins: {
         files: [{
           expand: true,
-          cwd: path.resolve(config.revealPath, 'plugin'),
+          cwd: path.join(config.revealPath, 'plugin'),
           src: '**/*.js',
           dest: 'dist/plugin'
         }]
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: path.resolve(config.revealPath, 'css', 'theme', 'source'),
+            cwd: path.join(config.revealPath, 'css', 'theme', 'source'),
             src: ['*.scss'],
             dest: 'dist/css/theme',
             ext: '.css'
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: path.resolve(config.revealPath, 'css'),
+            cwd: path.join(config.revealPath, 'css'),
             src: ['*.scss'],
             dest: 'dist/css',
             ext: '.css'
