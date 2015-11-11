@@ -91,7 +91,15 @@ module.exports = function(grunt) {
           expand: true,
           cwd: path.join(config.revealPath, 'plugin'),
           src: '**/*.js',
-          dest: 'dist/plugin'
+          dest: 'dist/js/plugin'
+        }]
+      },
+      custom_js: {
+        files: [{
+          expand: true,
+          cwd: path.join('src', 'js'),
+          src: '**/*.js',
+          dest: 'dist/js'
         }]
       }
     },
@@ -171,7 +179,7 @@ module.exports = function(grunt) {
           exports: false
         }
       },
-      files: [ 'Gruntfile.js', 'js/reveal.js' ]
+      files: [ 'Gruntfile.js', 'src/js/**/*.js' ]
     },
 
     connect: {
@@ -190,7 +198,7 @@ module.exports = function(grunt) {
         livereload: true
       },
       js: {
-        files: [ 'Gruntfile.js' ],
+        files: [ 'Gruntfile.js', 'src/js/**/*.js' ],
         tasks: 'js'
       },
       theme: {
@@ -199,7 +207,7 @@ module.exports = function(grunt) {
       },
       html: {
         files: [ 'src/*.tpl', config.slides ],
-        tasks: 'template'
+        tasks: 'html'
       },
     }
   });
@@ -220,10 +228,13 @@ module.exports = function(grunt) {
 
   // JS task
   grunt.registerTask('js', [ 'jshint', 'uglify' ]);
+  
+  // JS task
+  grunt.registerTask('html', [ 'template' ]);
 
   // All CSS
   grunt.registerTask('css', [ 'sass', 'autoprefixer', 'cssmin' ] );
 
   // Serve presentation locally
-  grunt.registerTask('serve', [ 'connect', 'watch' ] );
+  grunt.registerTask('serve', [ 'default', 'connect', 'watch' ] );
 };
