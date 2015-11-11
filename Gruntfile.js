@@ -124,14 +124,14 @@ module.exports = function(grunt) {
 
     autoprefixer: {
       dist: {
-        src: 'css/reveal.css'
+        src: 'dist/css/reveal.css'
       }
     },
 
     cssmin: {
       compress: {
         files: {
-          'css/reveal.min.css': [ 'css/reveal.css' ]
+          'dist/css/reveal.min.css': [ 'dist/css/reveal.css' ]
         }
       }
     },
