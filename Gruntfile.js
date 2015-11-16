@@ -10,7 +10,7 @@ module.exports = function(grunt) {
   grunt.option('revealPath', path.resolve(require.resolve('reveal.js'), '..', '..'));
   config.revealPath = path.resolve(require.resolve('reveal.js'), '..', '..');
   config.port = grunt.option('port') || 8000;
-  config.title = grunt.option('title') || 'Example Title';
+  config.title = grunt.option('title') || 'Presentation';
   config.author = grunt.option('author') || '';
   config.description = grunt.option('description') || '';
   config.slides = grunt.option('slides') || 'src/slides.md';
