@@ -207,7 +207,11 @@ module.exports = function(grunt) {
       },
       html: {
         files: [ 'src/*.tpl', config.slides ],
-        tasks: 'html'
+        tasks: [ 'html', 'copy' ]
+      },
+      assets: {
+        files: [ path.join(config.assets, '**') ],
+        tasks: 'copy'
       },
     }
   });
