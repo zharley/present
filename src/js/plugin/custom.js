@@ -20,6 +20,6 @@ var CustomPlugin = window.CustomPlugin || (function(){
     
     // Replace the original paragraph with the stretch element
     section.insertBefore(element, p);
-    section.removeChild(p)
+    section.removeChild(p);
   }
 })();
