@@ -1,0 +1,33 @@
+#! /bin/bash
+set -e
+
+# Check for presence of parameters
+if [ -z "$1" ]; then
+    echo "Usage: `basename $0` /path/to/working/directory"
+    exit 1
+fi
+
+# Working directory, pulled from script parameter
+MY_DIR="$1"
+
+# Expected markdown file containing slides
+MY_SLIDES="$MY_DIR/slides.md"
+
+# Expected directory containing assets
+MY_ASSETS="$MY_DIR/assets"
+
+echo "=> Working directory: $MY_DIR"
+
+if [ ! -f "$MY_SLIDES" ]; then
+    echo "=> Cannot find file: $MY_SLIDES"
+    exit 1
+fi
+
+if [ ! -d "$MY_ASSETS" ]; then
+    echo "=> Cannot find assets dir: $MY_ASSETS"
+    exit 1
+fi
+
+# Run grunt task
+echo "=> Running server..."
+grunt serve --slides="$MY_SLIDES" --assets="$MY_ASSETS"
