@@ -1,0 +1,54 @@
+#! /bin/bash
+set -e
+
+# check for presence of parameters
+if [ -z "$1" ]; then
+    echo "Usage: `basename $0` /path/to/new/dir"
+    exit 1
+fi
+
+MY_DIR="$1"
+MY_ASSETS_SUBDIR="assets"
+MY_SLIDES_FILE="slides.md"
+
+mkdir -p "$MY_DIR"
+cd "$MY_DIR"
+
+mkdir -p "$MY_ASSETS_SUBDIR"
+
+if [ -f "$MY_SLIDES_FILE" ]; then
+    echo "=> $MY_SLIDES_FILE exists"
+    exit 1
+fi
+
+cat > "$MY_SLIDES_FILE" << EOF
+# The main heading
+### A subheading
+---
+## A slide heading
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+---
+## Another slide heading
+
+An image with the special stretch style applied
+
+<img class="stretch" data-src="assets/image.png">
+
+---
+## Comparison
+
+Pros and cons!
+
+|Advantages|Disadvantages|
+|----------|-------------|
+|Big       |Heavy        |
+|Efficent  |Slow         |
+|Cheap     |Brittle      |
+EOF
+
+echo "=> Presentation in: '`pwd`'"
+echo "=> See '$MY_SLIDES_FILE' for example markdown"
+echo "=> Auto-created 'assets' subdirectory if needed"
+echo "=> Done!"
