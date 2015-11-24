@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+# gems: activesupport-inflector and i18n
+require 'i18n'
+require 'active_support/inflector'
+
+# needs an argument
+if ARGV.empty?
+  puts "Usage: #{File.basename($0)} /path/to/presentation"
+  exit 1
+end
+
+dir = ARGV[0]
+Dir.chdir(dir)
+
+files = Dir['assets/*.png']
+
+for file in files
+  name = File.basename(file, File.extname(file))
+  human_name = name.humanize
+
+slide = <<EOF
+
+---
+#{human_name}
+
+<img class="stretch" data-src="#{file}">
+EOF
+
+  puts slide
+end
