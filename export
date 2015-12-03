@@ -1,0 +1,20 @@
+#! /bin/bash
+set -e
+
+# check for presence of parameters
+if [ -z "$1" ]; then
+    echo "Usage: `basename $0` /path/to/out.pdf"
+    exit 1
+fi
+
+MY_FILE="$1"
+
+if [ -d "decktape" ] && [ -f "decktape/bin/phantomjs" ]; then
+    cd decktape
+    ./bin/phantomjs decktape.js reveal --size="1024x768" "http://localhost:8000/" "$MY_FILE"
+else
+    echo "=> Missing decktape installation. Run:"
+    echo "git clone --depth 1 https://github.com/astefanutti/decktape.git"
+    echo "curl -L http://astefanutti.github.io/decktape/downloads/phantomjs-osx-cocoa-x86-64 -o decktape/bin/phantomjs"
+    echo "# @see https://github.com/astefanutti/decktape"
+fi
