@@ -3,15 +3,25 @@ set -e
 
 # check for presence of parameters
 if [ -z "$1" ]; then
-    echo "Usage: `basename $0` /path/to/out.pdf"
+    echo "Usage: `basename $0` /path/to/out.pdf [http://localhost:8000/] [reveal]"
     exit 1
 fi
 
 MY_FILE="$1"
+MY_URL="$2"
+MY_MODE="$3"
+
+if [ -z "$2" ]; then
+  MY_URL="http://localhost:8000/"
+fi
+
+if [ -z "$3" ]; then
+  MY_MODE="reveal"
+fi
 
 if [ -d "decktape" ] && [ -f "decktape/bin/phantomjs" ]; then
     cd decktape
-    ./bin/phantomjs decktape.js reveal --size="1024x768" "http://localhost:8000/" "$MY_FILE"
+    ./bin/phantomjs decktape.js "$MY_MODE" --size="1024x768" "$MY_URL" "$MY_FILE"
 else
     echo "=> Missing decktape installation. Run:"
     echo "git clone --depth 1 https://github.com/astefanutti/decktape.git"
