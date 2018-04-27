@@ -19,12 +19,8 @@ if [ -z "$3" ]; then
   MY_MODE="reveal"
 fi
 
-if [ -d "decktape" ] && [ -f "decktape/bin/phantomjs" ]; then
-    cd decktape
-    ./bin/phantomjs decktape.js "$MY_MODE" --size="1024x768" "$MY_URL" "$MY_FILE"
+if [ -x "$(command -v decktape)" ]; then
+    decktape "$MY_MODE" --size="1024x768" "$MY_URL" "$MY_FILE"
 else
-    echo "=> Missing decktape installation. Run:"
-    echo "git clone --depth 1 https://github.com/astefanutti/decktape.git"
-    echo "curl -L http://astefanutti.github.io/decktape/downloads/phantomjs-osx-cocoa-x86-64 -o decktape/bin/phantomjs"
-    echo "# @see https://github.com/astefanutti/decktape"
+    echo "=> Missing decktape installation. Run: 'npm install -g decktape'"
 fi
