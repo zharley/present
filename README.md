@@ -10,15 +10,7 @@ First, install dependencies (including **Reveal.js**):
 
 Next, install [Decktape](https://github.com/astefanutti/decktape) for pixel-perfect export to PDF.
 
-    git clone --depth 1 https://github.com/astefanutti/decktape.git
-
-**Decktape** uses a custom build of [PhantomJS](http://phantomjs.org/). See [Decktape installation](https://github.com/astefanutti/decktape#install) for the appropriate platform-specific version, or the following command for OSX.
-
-    curl -L http://astefanutti.github.io/decktape/downloads/phantomjs-osx-cocoa-x86-64 -o decktape/bin/phantomjs
-
-Make it executable:
-
-    chmod +x decktape/bin/phantomjs
+    npm install -g decktape
 
 ## Reference
 
